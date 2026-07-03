@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register — Course Management System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a href="index.html" class="brand"><span class="mark">CMS</span> Course Management System</a>
+  <nav>
+    <span style="font-size:14px; color:var(--slate);">Already enrolled?</span>
+    <a href="login.html" class="ghost-btn">Log in</a>
+  </nav>
+</header>
+
+<main style="display:flex; justify-content:center; padding: 60px 20px 90px;">
+  <div style="width:100%; max-width: 460px; position:relative;">
+
+    <div class="ticket-card" style="padding: 40px 32px 34px;">
+      <div class="stamp">New<br>Enrollee</div>
+
+      <p class="eyebrow">Join the roster</p>
+      <h1 style="font-size: 28px; margin-bottom: 26px;">Create your account</h1>
+
+      <form id="registerForm" novalidate>
+
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div class="field" id="firstNameField">
+            <label for="firstName">First name</label>
+            <input type="text" id="firstName" name="firstName" placeholder="Ada" autocomplete="given-name">
+            <p class="hint">Required.</p>
+          </div>
+          <div class="field" id="lastNameField">
+            <label for="lastName">Last name</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Lovelace" autocomplete="family-name">
+            <p class="hint">Required.</p>
+          </div>
+        </div>
+
+        <div class="field" id="emailField">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@school.edu" autocomplete="email">
+          <p class="hint">Enter a valid email address.</p>
+        </div>
+
+        <div class="field" id="roleField">
+          <label for="role">I am registering as a</label>
+          <select id="role" name="role">
+            <option value="">Select role</option>
+            <option value="student">Student</option>
+            <option value="instructor">Instructor</option>
+          </select>
+          <p class="hint">Please select a role.</p>
+        </div>
+
+        <div class="field" id="passwordField">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="At least 8 characters" autocomplete="new-password">
+          <p class="hint">Password must be at least 8 characters.</p>
+        </div>
+
+        <div class="field" id="confirmField">
+          <label for="confirm">Confirm password</label>
+          <input type="password" id="confirm" name="confirm" placeholder="Re-enter password" autocomplete="new-password">
+          <p class="hint">Passwords do not match.</p>
+        </div>
+
+        <div class="checkbox-row">
+          <label><input type="checkbox" id="terms" name="terms"> I agree to the terms &amp; enrollment policy</label>
+        </div>
+
+        <button type="submit" class="primary">Register</button>
+      </form>
+
+      <p class="switch-line">
+        Already have an account? <a href="login.html">Log in</a>
+      </p>
+    </div>
+  </div>
+</main>
+
+<footer class="site">Course Management System</footer>
+
+<script>
+  document.getElementById('registerForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    let valid = true;
+
+    function requireFilled(inputId, fieldId){
+      const input = document.getElementById(inputId);
+      const field = document.getElementById(fieldId);
+      if(!input.value.trim()){
+        field.classList.add('invalid');
+        valid = false;
+      } else {
+        field.classList.remove('invalid');
+      }
+    }
+
+    requireFilled('firstName', 'firstNameField');
+    requireFilled('lastName', 'lastNameField');
+    requireFilled('role', 'roleField');
+
+    const email = document.getElementById('email');
+    const emailField = document.getElementById('emailField');
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+    if(!emailOk){
+      emailField.classList.add('invalid');
+      valid = false;
+    } else {
+      emailField.classList.remove('invalid');
+    }
+
+    const password = document.getElementById('password');
+    const passwordField = document.getElementById('passwordField');
+    if(password.value.length < 8){
+      passwordField.classList.add('invalid');
+      valid = false;
+    } else {
+      passwordField.classList.remove('invalid');
+    }
+
+    const confirm = document.getElementById('confirm');
+    const confirmField = document.getElementById('confirmField');
+    if(confirm.value !== password.value || !confirm.value){
+      confirmField.classList.add('invalid');
+      valid = false;
+    } else {
+      confirmField.classList.remove('invalid');
+    }
+
+    if(valid){
+      // Hook this up to your registration endpoint.
+      alert('Registration form is valid — connect this to your backend to create the account.');
+    }
+  });
+</script>
+
+</body>
+</html>

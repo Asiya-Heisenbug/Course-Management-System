@@ -1,0 +1,255 @@
+/* ==========================================================================
+   Course Management System — shared styles
+   Palette:  ink #14213D · parchment #F6F1E4 · amber #E8A33D · rust #B5651D
+   Type:     Fraunces (display) · Inter (body) · IBM Plex Mono (utility)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap');
+
+:root{
+  --ink:      #14213D;
+  --ink-70:   #14213Db3;
+  --parchment:#F6F1E4;
+  --card:     #FFFFFF;
+  --amber:    #E8A33D;
+  --rust:     #B5651D;
+  --slate:    #5C6470;
+  --line:     #D8CFB8;
+  --error:    #B3261E;
+
+  --radius: 3px;
+  --shadow: 0 1px 2px rgba(20,33,61,0.06), 0 8px 24px rgba(20,33,61,0.08);
+}
+
+*{ box-sizing: border-box; }
+
+html{ -webkit-text-size-adjust: 100%; }
+
+body{
+  margin: 0;
+  min-height: 100vh;
+  background: var(--parchment);
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(20,33,61,0.06) 1px, transparent 0);
+  background-size: 22px 22px;
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+h1, h2, h3{
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 .4em;
+}
+
+a{ color: var(--rust); }
+
+.eyebrow{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+
+/* ---------- top bar ---------- */
+.topbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 40px;
+  border-bottom: 1px solid var(--line);
+}
+.brand{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--ink);
+  text-decoration: none;
+}
+.brand .mark{
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--parchment);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  transform: rotate(-8deg);
+}
+.topbar nav{ display: flex; gap: 28px; align-items: center; }
+.topbar nav a{
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+.topbar nav a.ghost-btn{
+  border: 1px solid var(--ink);
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  color: var(--ink);
+}
+.topbar nav a.solid-btn{
+  background: var(--ink);
+  color: var(--parchment);
+  padding: 9px 16px;
+  border-radius: var(--radius);
+}
+
+/* ---------- ticket / card motif ---------- */
+.ticket-card{
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.ticket-card::before,
+.ticket-card::after{
+  content: "";
+  position: absolute;
+  width: 22px; height: 22px;
+  background: var(--parchment);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.ticket-card::before{ left: -11px; }
+.ticket-card::after{ right: -11px; }
+
+.stamp{
+  position: absolute;
+  top: -16px;
+  right: 28px;
+  width: 76px; height: 76px;
+  border-radius: 50%;
+  border: 2px solid var(--rust);
+  color: var(--rust);
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  transform: rotate(9deg);
+  background: var(--parchment);
+  line-height: 1.25;
+}
+
+/* ---------- form elements ---------- */
+.field{ margin-bottom: 18px; }
+.field label{
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 6px;
+}
+.field input,
+.field select{
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #FBF8F1;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: var(--ink);
+  outline: none;
+  transition: border-color .15s ease, background .15s ease;
+}
+.field input:focus,
+.field select:focus{
+  border-color: var(--rust);
+  background: #fff;
+}
+.field .hint{
+  font-size: 12px;
+  color: var(--error);
+  margin-top: 6px;
+  display: none;
+}
+.field.invalid input{ border-color: var(--error); }
+.field.invalid .hint{ display: block; }
+
+.checkbox-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--slate);
+  margin-bottom: 22px;
+}
+.checkbox-row label{ display: flex; align-items: center; gap: 8px; cursor: pointer; }
+
+button.primary{
+  width: 100%;
+  padding: 13px 18px;
+  background: var(--ink);
+  color: var(--parchment);
+  border: none;
+  border-radius: var(--radius);
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background .15s ease, transform .1s ease;
+}
+button.primary:hover{ background: var(--rust); }
+button.primary:active{ transform: translateY(1px); }
+
+.divider{
+  display: flex; align-items: center; gap: 12px;
+  margin: 22px 0;
+  color: var(--slate);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+.divider::before, .divider::after{
+  content: ""; flex: 1; height: 1px; background: var(--line);
+}
+
+.switch-line{
+  text-align: center;
+  font-size: 14px;
+  color: var(--slate);
+  margin-top: 20px;
+}
+.switch-line a{ font-weight: 600; text-decoration: none; }
+
+.perforation{
+  border-top: 1px dashed var(--line);
+  margin: 26px 0 22px;
+}
+
+footer.site{
+  text-align: center;
+  padding: 30px;
+  font-size: 12px;
+  color: var(--slate);
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.visually-hidden{
+  position:absolute; width:1px; height:1px; overflow:hidden;
+  clip:rect(0 0 0 0); white-space:nowrap;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ transition: none !important; animation: none !important; }
+}
+
+@media (max-width: 640px){
+  .topbar{ padding: 16px 20px; }
+  .topbar nav{ gap: 14px; }
+}

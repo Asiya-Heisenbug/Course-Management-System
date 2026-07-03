@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log in — Course Management System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a href="index.html" class="brand"><span class="mark">CMS</span> Course Management System</a>
+  <nav>
+    <span style="font-size:14px; color:var(--slate);">New here?</span>
+    <a href="register.html" class="ghost-btn">Register</a>
+  </nav>
+</header>
+
+<main style="display:flex; justify-content:center; padding: 70px 20px 90px;">
+  <div style="width:100%; max-width: 420px; position:relative;">
+
+    <div class="ticket-card" style="padding: 40px 32px 34px;">
+      <div class="stamp">Log&nbsp;In<br>Roster</div>
+
+      <p class="eyebrow">Welcome back</p>
+      <h1 style="font-size: 28px; margin-bottom: 26px;">Log in to your account</h1>
+
+      <form id="loginForm" novalidate>
+        <div class="field" id="emailField">
+          <label for="email">Email or student ID</label>
+          <input type="text" id="email" name="email" placeholder="you@school.edu" autocomplete="username">
+          <p class="hint">Enter your email or student ID.</p>
+        </div>
+
+        <div class="field" id="passwordField">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="••••••••" autocomplete="current-password">
+          <p class="hint">Enter your password.</p>
+        </div>
+
+        <div class="checkbox-row">
+          <label><input type="checkbox" id="remember" name="remember"> Keep me signed in</label>
+          <a href="#" style="color:var(--rust); text-decoration:none;">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="primary">Log in</button>
+      </form>
+
+      <p class="switch-line">
+        Don't have an account? <a href="register.html">Register here</a>
+      </p>
+    </div>
+  </div>
+</main>
+
+<footer class="site">Course Management System</footer>
+
+<script>
+  document.getElementById('loginForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    let valid = true;
+
+    const email = document.getElementById('email');
+    const emailField = document.getElementById('emailField');
+    if(!email.value.trim()){
+      emailField.classList.add('invalid');
+      valid = false;
+    } else {
+      emailField.classList.remove('invalid');
+    }
+
+    const password = document.getElementById('password');
+    const passwordField = document.getElementById('passwordField');
+    if(!password.value){
+      passwordField.classList.add('invalid');
+      valid = false;
+    } else {
+      passwordField.classList.remove('invalid');
+    }
+
+    if(valid){
+      // Hook this up to your authentication endpoint.
+      alert('Login form is valid — connect this to your backend to authenticate.');
+    }
+  });
+</script>
+
+</body>
+</html>

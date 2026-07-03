@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Management System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a href="index.html" class="brand"><span class="mark">CMS</span> Course Management System</a>
+  <nav>
+    <a href="login.html">Log in</a>
+    <a href="register.html" class="solid-btn">Register</a>
+  </nav>
+</header>
+
+<main>
+  <section style="max-width: 1040px; margin: 0 auto; padding: 90px 24px 60px; text-align:center;">
+    <p class="eyebrow">Enrollment · Grades · Timetables — one roster</p>
+    <h1 style="font-size: clamp(32px, 5vw, 54px); max-width: 760px; margin: 10px auto 18px;">
+      Run your courses like a well-kept ledger, not a pile of spreadsheets.
+    </h1>
+    <p style="color: var(--slate); font-size: 17px; max-width: 560px; margin: 0 auto 34px;">
+      Students enroll, instructors post grades, and the whole term stays in one
+      place — searchable, exportable, and always up to date.
+    </p>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a href="register.html" style="text-decoration:none;">
+        <button class="primary" style="width:auto; padding:13px 28px;">Create an account</button>
+      </a>
+      <a href="login.html" style="text-decoration:none;">
+        <button class="primary" style="width:auto; padding:13px 28px; background:transparent; color:var(--ink); border:1px solid var(--ink);">
+          I already have one
+        </button>
+      </a>
+    </div>
+  </section>
+
+  <section style="max-width: 1040px; margin: 40px auto 0; padding: 0 24px 90px;">
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 22px;">
+
+      <div class="ticket-card" style="padding: 26px 24px;">
+        <p class="eyebrow">01 · For students</p>
+        <h3 style="font-size:19px;">Enroll in a click</h3>
+        <p style="color:var(--slate); font-size:14px; margin:0;">
+          Browse open courses, check seat counts, and register before the
+          add/drop window closes.
+        </p>
+      </div>
+
+      <div class="ticket-card" style="padding: 26px 24px;">
+        <p class="eyebrow">02 · For instructors</p>
+        <h3 style="font-size:19px;">Post grades directly</h3>
+        <p style="color:var(--slate); font-size:14px; margin:0;">
+          Update a gradebook that students see instantly — no spreadsheet
+          exports, no email threads.
+        </p>
+      </div>
+
+      <div class="ticket-card" style="padding: 26px 24px;">
+        <p class="eyebrow">03 · For administrators</p>
+        <h3 style="font-size:19px;">See the whole term</h3>
+        <p style="color:var(--slate); font-size:14px; margin:0;">
+          Track capacity, conflicts, and completion rates across every
+          department from one dashboard.
+        </p>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site">Course Management System</footer>
+
+</body>
+</html>
