@@ -21,4 +21,4 @@ The repository setup was completed successfully with a clear and informative REA
 Establishing a GitHub repository at the beginning of a project is a crucial step in modern software development. It ensures version control, maintains clarity in documentation, and supports collaborative work. The repository is now fully prepared to support the ongoing development of the Course Management System.
 
 **GitHub Link:**
-https://github.com/harini-012/course-management-system
+https://github.com/Asiya-Heisenbug/Course-Management-System
